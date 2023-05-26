@@ -8,6 +8,11 @@
 
   <ItemGroup>
     <PackageReference Include="MudBlazor" Version="6.3.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\VlubView.Library\ClubView.Library.csproj" />
   </ItemGroup>
 
 </Project>

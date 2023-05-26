@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ClubView.API.Interfaces;
-using ClubView.API.Models;
+using ClubView.Library.Models;
 
 namespace ClubView.API.Controllers
 {

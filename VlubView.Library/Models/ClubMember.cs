@@ -1,5 +1,5 @@
 ﻿
-namespace ClubView.API.Models
+namespace ClubView.Library.Models
 {
     public class ClubMember
     {

@@ -1,5 +1,5 @@
 ﻿using ClubView.API.Interfaces;
-using ClubView.API.Models;
+using ClubView.Library.Models;
 using Microsoft.EntityFrameworkCore;
 using ClubView.API.DataAccess;
 

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ClubView.API.Interfaces;
-using ClubView.API.Models;
+using ClubView.Library.Models;
 using ClubView.API.DataAccess;
 
 namespace ClubView.API.Repository

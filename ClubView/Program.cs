@@ -1,13 +1,23 @@
-using ClubView.Data;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
+using ClubView.APIConfiguration;
+using Microsoft.Extensions.Configuration;
+using MudBlazor.Services;
+using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddSingleton<WeatherForecastService>();
+builder.Services.AddMudServices();
+
+builder.Services.AddScoped<GetAPIBaseUrl>();
+
+var httpClient = new HttpClient
+{
+    BaseAddress = new Uri(builder.Configuration["AppSettings:BaseUrl"])
+};
+
+builder.Services.AddSingleton(httpClient);
 
 var app = builder.Build();
 

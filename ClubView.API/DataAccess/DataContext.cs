@@ -1,4 +1,4 @@
-﻿using ClubView.API.Models;
+﻿using ClubView.Library.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClubView.API.DataAccess

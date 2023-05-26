@@ -1,6 +1,71 @@
 ﻿@page "/Users"
+@using ClubView.APIConfiguration;
+@using ClubView.Library.Models;
+
+@inject GetAPIBaseUrl Configuration
+@inject HttpClient Http
+@inject ISnackbar Snackbar
+
 <h3>Users</h3>
 
-@code {
+@if (members == null)
+{
+    <p>Loading...</p>
+}
+else if (members.Count == 0)
+{
+    <p>No club members found.</p>
+}
+else
+{
+    <MudTable Items="members" Hover="true" Striped="true">
+    <HeaderContent>
+        <MudTh>First Name</MudTh>
+        <MudTh>Last Name</MudTh>
+        <MudTh></MudTh> <!-- Empty column for edit/delete buttons -->
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="First Name">@context.FirstName</MudTd>
+        <MudTd DataLabel="Last Name">@context.LastName</MudTd>
+        <MudTd>
+            <MudButton Icon="@Icons.Material.Filled.Edit" Color="Color.Primary" Variant="Variant.Filled" Size="Size.Small" OnClick="@(() => EditUser(context))">
+                Edit
+            </MudButton>
+                <MudButton Icon="@Icons.Material.Filled.Delete" Color="Color.Error" Variant="Variant.Filled" Size="Size.Small" OnClick="@(() => DeleteUser(context))">
+                Delete
+            </MudButton>
+        </MudTd>
+    </RowTemplate>
+</MudTable>
+}
 
+@code {
+    private string BaseUrl { get; set; }
+
+    private List<ClubMember>? members;
+
+    protected override async Task OnInitializedAsync()
+    {
+        BaseUrl = Configuration.GetBaseUrl();
+
+        try
+        {
+            members = await Http.GetFromJsonAsync<List<ClubMember>>($"{BaseUrl}api/ClubMember");
+        }
+        catch (Exception ex)
+        {
+            // Handle error here, e.g., show an error toast/notification
+            Snackbar.Add($"Error retrieving club members: {ex.Message}", Severity.Error);
+        }
+    }
+
+    private async void EditUser(ClubMember clubMember)
+    {
+        // Logic to edit the selected user
+    }
+
+    private async void DeleteUser(ClubMember clubMember)
+    {
+        // Logic to delete the selected user
+    }
 }

@@ -1,7 +1,59 @@
 ﻿@page "/Whiskey List"
+@using ClubView.APIConfiguration;
+@using ClubView.Library.Models;
+
+@inject GetAPIBaseUrl Configuration
+@inject HttpClient Http
+
 <h3>Whiskey List</h3>
 
+<MudTable Items="whiskeys" Hover="true" Striped="true">
+    <HeaderContent>
+        <MudTh>Id</MudTh>
+        <MudTh>Name</MudTh>
+        <MudTh>Description</MudTh>
+        <MudTh>Image</MudTh>
+        <MudTh>Club Member Id</MudTh>
+        <MudTh></MudTh> <!-- Empty column for edit/delete buttons -->
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Id">@context.Id</MudTd>
+        <MudTd DataLabel="Name">@context.Name</MudTd>
+        <MudTd DataLabel="Description">@context.Description</MudTd>
+        <MudTd DataLabel="Image">
+            <img src="@context.Base64Image" alt="Whiskey Image" style="max-width: 100px;" />
+        </MudTd>
+        <MudTd DataLabel="Club Member Id">@context.ClubMemberId</MudTd>
+        <MudTd>
+            <MudButton Icon="@Icons.Material.Filled.Edit" Color="Color.Primary" Variant="Variant.Filled" Size="Size.Small" OnClick="@(() => EditWhiskey(context))">
+                Edit
+            </MudButton>
+            <MudButton Icon="@Icons.Material.Filled.Delete" Color="Color.Error" Variant="Variant.Filled" Size="Size.Small" OnClick="@(() => DeleteWhiskey(context))">
+                Delete
+            </MudButton>
+        </MudTd>
+    </RowTemplate>
+</MudTable>
 
 @code {
+    private string BaseUrl { get; set; }
+    private List<Whiskey>? whiskeys;
 
+    protected async override void OnInitialized()
+    {
+        BaseUrl = Configuration.GetBaseUrl();
+
+        whiskeys = await Http.GetFromJsonAsync<List<Whiskey>>($"{BaseUrl}api/Whiskey");
+    }
+
+    private async void EditWhiskey(Whiskey whiskey)
+    {
+        // Logic to edit the selected whiskey
+    }
+
+    private async void DeleteWhiskey(Whiskey whiskey)
+    {
+        // Logic to delete the selected whiskey
+    }
 }
+

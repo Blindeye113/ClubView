@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ClubView.API.Models;
+using ClubView.Library.Models;
 using ClubView.API.Interfaces;
 
 namespace ClubView.API.Handlers

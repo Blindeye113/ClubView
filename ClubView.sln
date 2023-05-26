@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClubView", "ClubView\ClubVi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClubView.API", "ClubView.API\ClubView.API.csproj", "{D91DA4B7-93DE-49EE-9917-48605A806D70}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClubView.Library", "VlubView.Library\ClubView.Library.csproj", "{0013B949-18FE-4AC3-8F92-064F7872316A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D91DA4B7-93DE-49EE-9917-48605A806D70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D91DA4B7-93DE-49EE-9917-48605A806D70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D91DA4B7-93DE-49EE-9917-48605A806D70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0013B949-18FE-4AC3-8F92-064F7872316A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0013B949-18FE-4AC3-8F92-064F7872316A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0013B949-18FE-4AC3-8F92-064F7872316A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0013B949-18FE-4AC3-8F92-064F7872316A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

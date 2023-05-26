@@ -1,4 +1,4 @@
-﻿using ClubView.API.Models;
+﻿using ClubView.Library.Models;
 
 namespace ClubView.API.Interfaces
 {
